@@ -47,7 +47,6 @@
             <li><a href="our-staff.html">Our Staff</a></li>
             <li><a href="events.html">Events</a></li>
             <li><a href="gallery.html">Gallery</a></li>
-            <li><a href="contact.html">Contact</a></li>
             <li><a href="cbse-disclosure.html">CBSE</a></li>
             <li><a href="contact.html" class="navAdmission">Admissions</a></li>
           </ul>
@@ -57,31 +56,34 @@
   </header>
 
   <!-- ══ HERO ══ -->
-  <section class="hero">
+  <section class="hero heroInner">
     <div class="heroBg"></div>
     <div class="heroOverlay"></div>
-    <div class="container heroInner">
-      <div class="heroContent">
-        <div class="heroBadge"><span></span> CBSE Affiliated · Est. 2002</div>
-        <h1>Shaping <em>Futures</em>,<br>Building <em>Character</em></h1>
-        <p>Paul International School, Lakhimpur Kheri — a family-spirited institution committed to academic excellence, holistic development, and nurturing the leaders of tomorrow.</p>
-        <div class="heroCtas">
-          <a class="btnPrimary" href="about.html">Discover Our School →</a>
+    <!-- Hero text: constrained by container, left-aligned with rest of page -->
+    <div class="heroTextWrap">
+      <div class="container">
+        <div class="heroContent">
+          <div class="heroBadge"><span></span> CBSE Affiliated · Est. 2002</div>
+          <h1>Shaping <em>Futures</em>,<br>Building <em>Character</em></h1>
+          <p>Paul International School, Lakhimpur Kheri — a family-spirited institution committed to academic excellence, holistic development, and nurturing the leaders of tomorrow.</p>
+          <div class="heroCtas">
+            <a class="btnPrimary" href="about.html">Discover Our School →</a>
+          </div>
         </div>
       </div>
-
-      <!-- ══ NOTICE BOARD (hero right panel) ══ -->
-      <div class="noticeBoard" id="noticeBoard">
-        <div class="noticeBoardHeader">
-          <span>📋 Notice Board</span>
-          <a href="#" class="noticeViewAll">View All</a>
-        </div>
-        <div class="noticeBoardBody" id="noticeBoardBody">
-          <div class="noticeLoading">Loading notices…</div>
-        </div>
-      </div>
-
     </div>
+
+    <!-- ══ NOTICE BOARD (flush right, outside container) ══ -->
+    <div class="noticeBoard" id="noticeBoard">
+      <div class="noticeBoardHeader">
+        <span>📋 Notice Board</span>
+        <a href="#" class="noticeViewAll">View All</a>
+      </div>
+      <div class="noticeBoardBody" id="noticeBoardBody">
+        <div class="noticeLoading">Loading notices…</div>
+      </div>
+    </div>
+
   </section>
 
   <!-- ══ STATS BAR ══ -->
@@ -365,21 +367,26 @@
   <style>
     /* Hero two-column layout */
     .heroInner {
-      display: flex;
+      display: flex !important;
       align-items: stretch;
-      justify-content: space-between;
-      gap: 0;
-      padding: 0;
-      max-width: 100%;
+      position: relative;
+    }
+    /* Hero text wrapper grows to fill space, respects container alignment */
+    .heroTextWrap {
+      flex: 1 1 auto;
+      display: flex;
+      align-items: center;
+      z-index: 2;
+    }
+    .heroTextWrap .container {
       width: 100%;
     }
     .heroContent {
-      flex: 1 1 auto;
-      padding: 80px 48px;
+      padding: 80px 0;
       display: flex;
       flex-direction: column;
       justify-content: center;
-      z-index: 2;
+      max-width: 640px;
     }
 
     /* Notice board panel */
@@ -484,6 +491,8 @@
     /* Responsive */
     @media (max-width: 900px) {
       .heroInner { flex-direction: column; }
+      .heroTextWrap { width: 100%; }
+      .heroContent { padding: 60px 0 40px; max-width: 100%; }
       .noticeBoard {
         flex: none;
         width: 100%;
@@ -492,7 +501,6 @@
         min-height: unset;
         max-height: 300px;
       }
-      .heroContent { padding: 60px 24px 40px; }
     }
   </style>
 
