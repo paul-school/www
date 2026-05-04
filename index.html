@@ -413,7 +413,7 @@
         const regular = lines.filter(l => !l.startsWith('ADMISSION_OPEN'))
                              .map(l => l.split('|').map(s=>s.trim()))
                              .sort((a,b) => new Date(b[0]) - new Date(a[0]))
-                             .slice(0, 3);
+                             .slice(0, 6);
         const body = document.getElementById('noticeBoardBody');
         let html = '';
         pinned.forEach(f  => html += nbBuildCard(f, true));
