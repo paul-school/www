@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="Events — Paul International School, Lakhimpur Kheri" />
+  <title>Events • Paul International School</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="topBar"><div class="container"><div class="topBarInner">
+    <div class="topBarLeft"><span>Near Jal Bhawan, Sitapur Road, Lakhimpur Kheri – 262701</span></div>
+    <div class="topBarRight"><a href="tel:8765285114">8765285114</a><a href="mailto:info@paulinternationalschool.edu.in">info@paulinternationalschool.edu.in</a></div>
+  </div></div></div>
+
+  <header><div class="container"><div class="nav">
+    <a class="brand" href="index.html"><img src="images/logo.png" alt="Paul International School" /><div class="title"><strong>Paul International School</strong><span>Lakhimpur Kheri, U.P.</span></div></a>
+    <nav aria-label="Primary"><ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="our-staff.html">Our Staff</a></li>
+      <li><a href="events.html" class="active">Events</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="cbse-disclosure.html">CBSE</a></li>
+      <li><a href="contact.html" class="navAdmission">Admissions</a></li>
+    </ul></nav>
+  </div></div></header>
+
+  <div class="pageHero"><div class="container">
+    <div class="kicker"><span></span> School Calendar</div>
+    <h1>Events & Activities</h1>
+    <p>Stay updated with academic, cultural and sports events happening at Paul International School throughout the year.</p>
+  </div></div>
+
+  <div class="breadcrumb"><div class="container"><ol><li><a href="index.html">Home</a></li><li>Events</li></ol></div></div>
+
+  <main><div class="container">
+
+    <div class="statsBar">
+      <div class="statItem"><div class="num">20<span>+</span></div><div class="lbl">Events Per Year</div></div>
+      <div class="statItem"><div class="num">5<span>+</span></div><div class="lbl">Upcoming Events</div></div>
+      <div class="statItem"><div class="num">3</div><div class="lbl">Categories</div></div>
+      <div class="statItem"><div class="num">100<span>%</span></div><div class="lbl">Student Participation</div></div>
+    </div>
+
+    <div class="filters">
+      <button class="filterBtn active" onclick="filterEvents('all',this)">All Events</button>
+      <button class="filterBtn" onclick="filterEvents('academic',this)">Academic</button>
+      <button class="filterBtn" onclick="filterEvents('cultural',this)">Cultural</button>
+      <button class="filterBtn" onclick="filterEvents('sports',this)">Sports</button>
+      <button class="filterBtn" onclick="filterEvents('general',this)">General</button>
+    </div>
+
+    <div class="eventsGrid" id="eventsGrid">
+
+      <div class="eventCard" data-cat="academic">
+        <div class="eventCardAccent acc-academic"></div>
+        <div class="eventCardTop">
+          <div class="eventDate"><div class="day">26</div><div class="mon">Jan</div></div>
+          <div class="eventInfo"><span class="eventCat cat-academic">Academic</span><h4>Republic Day Celebration & Parade</h4></div>
+        </div>
+        <div class="eventCardBody"><p>Annual Republic Day parade and flag hoisting ceremony with cultural performances by students of all classes.</p></div>
+      </div>
+
+      <div class="eventCard" data-cat="cultural">
+        <div class="eventCardAccent acc-cultural"></div>
+        <div class="eventCardTop">
+          <div class="eventDate"><div class="day">14</div><div class="mon">Feb</div></div>
+          <div class="eventInfo"><span class="eventCat cat-cultural">Cultural</span><h4>Saraswati Puja & Vasant Panchami</h4></div>
+        </div>
+        <div class="eventCardBody"><p>School-wide celebration of Vasant Panchami with Saraswati Puja, cultural programmes and art competitions.</p></div>
+      </div>
+
+      <div class="eventCard" data-cat="academic">
+        <div class="eventCardAccent acc-academic"></div>
+        <div class="eventCardTop">
+          <div class="eventDate"><div class="day">15</div><div class="mon">Mar</div></div>
+          <div class="eventInfo"><span class="eventCat cat-academic">Academic</span><h4>Annual Science Exhibition</h4></div>
+        </div>
+        <div class="eventCardBody"><p>Students from Classes VI–XII present innovative models and experiments. Open to parents and guests.</p></div>
+      </div>
+
+      <div class="eventCard" data-cat="sports">
+        <div class="eventCardAccent acc-sports"></div>
+        <div class="eventCardTop">
+          <div class="eventDate"><div class="day">20</div><div class="mon">Mar</div></div>
+          <div class="eventInfo"><span class="eventCat cat-sports">Sports</span><h4>Annual Sports Meet</h4></div>
+        </div>
+        <div class="eventCardBody"><p>Inter-house track and field events, team sports and prize distribution. A day of athletic excellence and school spirit.</p></div>
+      </div>
+
+      <div class="eventCard" data-cat="cultural">
+        <div class="eventCardAccent acc-cultural"></div>
+        <div class="eventCardTop">
+          <div class="eventDate"><div class="day">10</div><div class="mon">Apr</div></div>
+          <div class="eventInfo"><span class="eventCat cat-cultural">Cultural</span><h4>Annual Cultural Night</h4></div>
+        </div>
+        <div class="eventCardBody"><p>A dazzling evening of music, dance and drama showcasing the creative talents of our students before parents and guests.</p></div>
+      </div>
+
+      <div class="eventCard" data-cat="general">
+        <div class="eventCardAccent acc-general"></div>
+        <div class="eventCardTop">
+          <div class="eventDate"><div class="day">15</div><div class="mon">May</div></div>
+          <div class="eventInfo"><span class="eventCat cat-general">General</span><span class="upcomingBadge">Upcoming</span><h4>Founders Day Celebration</h4></div>
+        </div>
+        <div class="eventCardBody"><p>Annual Founders Day marking the establishment of Paul International School in 2002. Prize distribution and alumni meet.</p></div>
+      </div>
+
+      <div class="eventCard" data-cat="academic">
+        <div class="eventCardAccent acc-academic"></div>
+        <div class="eventCardTop">
+          <div class="eventDate"><div class="day">01</div><div class="mon">Jun</div></div>
+          <div class="eventInfo"><span class="eventCat cat-academic">Academic</span><span class="upcomingBadge">Upcoming</span><h4>New Academic Session Begins</h4></div>
+        </div>
+        <div class="eventCardBody"><p>Welcome assembly for new and returning students. Orientation for new admissions and distribution of timetables.</p></div>
+      </div>
+
+      <div class="eventCard" data-cat="cultural">
+        <div class="eventCardAccent acc-cultural"></div>
+        <div class="eventCardTop">
+          <div class="eventDate"><div class="day">15</div><div class="mon">Aug</div></div>
+          <div class="eventInfo"><span class="eventCat cat-cultural">Cultural</span><span class="upcomingBadge">Upcoming</span><h4>Independence Day Celebration</h4></div>
+        </div>
+        <div class="eventCardBody"><p>Flag hoisting, patriotic performances, speeches and cultural programmes to celebrate India's Independence Day.</p></div>
+      </div>
+
+      <div class="eventCard" data-cat="academic">
+        <div class="eventCardAccent acc-academic"></div>
+        <div class="eventCardTop">
+          <div class="eventDate"><div class="day">Oct</div><div class="mon">2025</div></div>
+          <div class="eventInfo"><span class="eventCat cat-academic">Academic</span><span class="upcomingBadge">Upcoming</span><h4>Half-Yearly Examinations</h4></div>
+        </div>
+        <div class="eventCardBody"><p>Mid-year assessments for all classes. Detailed schedule to be announced. Parents are requested to ensure regular attendance.</p></div>
+      </div>
+
+    </div>
+
+    <div class="ctaBanner">
+      <div><h3>Want to Stay Updated?</h3><p>Follow our notice board for the latest event announcements and school news.</p></div>
+      <div class="ctaBtns">
+        <a class="btnPrimary" href="index.html#notices">View Notice Board</a>
+        <a class="btnOutline" href="contact.html">Contact School</a>
+      </div>
+    </div>
+
+  </div></main>
+
+  <footer><div class="container">
+    <div class="footerGrid">
+      <div class="footerBrand"><img src="images/logo.png" alt="Paul International School" /><p>A CBSE-affiliated school established in 2002, committed to academic excellence and holistic development in Lakhimpur Kheri.</p><div class="affBadge" style="margin-top:14px;">✅ CBSE Affiliated</div></div>
+      <div><h5>Quick Links</h5><ul><li><a href="about.html">About Us</a></li><li><a href="our-staff.html">Our Staff</a></li><li><a href="events.html">Events</a></li><li><a href="gallery.html">Gallery</a></li><li><a href="cbse-disclosure.html">CBSE Disclosure</a></li></ul></div>
+      <div><h5>Academics</h5><ul><li>Primary Section (I–V)</li><li>Middle Section (VI–VIII)</li><li>Secondary (IX–X)</li><li>Senior Secondary (XI–XII)</li><li>Science & Commerce Streams</li></ul></div>
+      <div><h5>Contact</h5><ul><li>Near Jal Bhawan, Sitapur Road</li><li>Lakhimpur Kheri – 262701, U.P.</li><li><a href="tel:8765285114">📞 8765285114</a></li><li><a href="mailto:info@paulinternationalschool.edu.in">✉ info@paulinternationalschool.edu.in</a></li><li><a href="contact.html">View on Map →</a></li></ul></div>
+    </div>
+    <hr class="footerDivider" />
+    <div class="footerBottom"><p>© 2026 Paul International School, Lakhimpur Kheri. All rights reserved.</p><p>Designed for Paul International School</p></div>
+  </div></footer>
+
+  <script>
+    function filterEvents(cat, btn) {
+      document.querySelectorAll('.filterBtn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      document.querySelectorAll('.eventCard').forEach(card => {
+        card.style.display = (cat === 'all' || card.dataset.cat === cat) ? 'flex' : 'none';
+      });
+    }
+  </script>
+</body>
+</html>

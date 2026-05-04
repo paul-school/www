@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="Gallery — Paul International School, Lakhimpur Kheri" />
+  <title>Gallery • Paul International School</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="topBar"><div class="container"><div class="topBarInner">
+    <div class="topBarLeft"><span>Near Jal Bhawan, Sitapur Road, Lakhimpur Kheri – 262701</span></div>
+    <div class="topBarRight"><a href="tel:8765285114">8765285114</a><a href="mailto:info@paulinternationalschool.edu.in">info@paulinternationalschool.edu.in</a></div>
+  </div></div></div>
+
+  <header><div class="container"><div class="nav">
+    <a class="brand" href="index.html"><img src="images/logo.png" alt="Paul International School" /><div class="title"><strong>Paul International School</strong><span>Lakhimpur Kheri, U.P.</span></div></a>
+    <nav aria-label="Primary"><ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="our-staff.html">Our Staff</a></li>
+      <li><a href="events.html">Events</a></li>
+      <li><a href="gallery.html" class="active">Gallery</a></li>
+      <li><a href="cbse-disclosure.html">CBSE</a></li>
+      <li><a href="contact.html" class="navAdmission">Admissions</a></li>
+    </ul></nav>
+  </div></div></header>
+
+  <div class="pageHero"><div class="container">
+    <div class="kicker"><span></span> Campus Life</div>
+    <h1>Photo Gallery</h1>
+    <p>A glimpse into the vibrant life at Paul International School — campus, academics, sports, events and more.</p>
+  </div></div>
+
+  <div class="breadcrumb"><div class="container"><ol><li><a href="index.html">Home</a></li><li>Gallery</li></ol></div></div>
+
+  <main><div class="container">
+
+    <div class="filters">
+      <button class="filterBtn active" onclick="filterGallery('all',this)">All</button>
+      <button class="filterBtn" onclick="filterGallery('campus',this)">Campus</button>
+      <button class="filterBtn" onclick="filterGallery('academic',this)">Academics</button>
+      <button class="filterBtn" onclick="filterGallery('facility',this)">Facilities</button>
+      <button class="filterBtn" onclick="filterGallery('sports',this)">Sports</button>
+      <button class="filterBtn" onclick="filterGallery('events',this)">Events</button>
+    </div>
+
+    <div class="galleryGrid" id="galleryGrid">
+
+      <div class="galleryItem" data-cat="campus" data-title="School Campus" data-desc="The main building of Paul International School, Lakhimpur Kheri." onclick="openLightbox(this,'img')">
+        <img src="images/school_building.jpg" alt="School Campus" style="height:280px;object-fit:cover;" />
+        <span class="catTag tag-campus">Campus</span>
+        <div class="caption">School Campus</div>
+      </div>
+
+      <div class="galleryItem" data-cat="academic" data-title="Science Laboratory" data-desc="Students conducting experiments in the well-equipped science lab." onclick="openLightbox(this,'placeholder')">
+        <div class="imgPlaceholder h-lg g-academic">🔬</div>
+        <span class="catTag tag-academic">Academics</span>
+        <div class="caption">Science Laboratory</div>
+      </div>
+
+      <div class="galleryItem" data-cat="events" data-title="Annual Cultural Night" data-desc="Students performing at the Annual Cultural Night." onclick="openLightbox(this,'placeholder')">
+        <div class="imgPlaceholder h-md g-events">🎭</div>
+        <span class="catTag tag-events">Events</span>
+        <div class="caption">Annual Cultural Night</div>
+      </div>
+
+      <div class="galleryItem" data-cat="sports" data-title="Sports Meet" data-desc="Students competing in the Annual Sports Meet." onclick="openLightbox(this,'placeholder')">
+        <div class="imgPlaceholder h-xl g-sports">🏅</div>
+        <span class="catTag tag-sports">Sports</span>
+        <div class="caption">Annual Sports Meet</div>
+      </div>
+
+      <div class="galleryItem" data-cat="facility" data-title="Computer Laboratory" data-desc="Modern computer lab with internet-enabled workstations." onclick="openLightbox(this,'placeholder')">
+        <div class="imgPlaceholder h-md g-facility">💻</div>
+        <span class="catTag tag-facility">Facilities</span>
+        <div class="caption">Computer Laboratory</div>
+      </div>
+
+      <div class="galleryItem" data-cat="campus" data-title="School Grounds" data-desc="Spacious grounds for sports and outdoor activities." onclick="openLightbox(this,'placeholder')">
+        <div class="imgPlaceholder h-sm g-campus">🌳</div>
+        <span class="catTag tag-campus">Campus</span>
+        <div class="caption">School Grounds</div>
+      </div>
+
+      <div class="galleryItem" data-cat="events" data-title="Republic Day Parade" data-desc="Students marching in the Republic Day parade." onclick="openLightbox(this,'placeholder')">
+        <div class="imgPlaceholder h-lg g-events">🇮🇳</div>
+        <span class="catTag tag-events">Events</span>
+        <div class="caption">Republic Day Parade</div>
+      </div>
+
+      <div class="galleryItem" data-cat="academic" data-title="Classroom Learning" data-desc="Students engaged in interactive classroom sessions." onclick="openLightbox(this,'placeholder')">
+        <div class="imgPlaceholder h-md g-academic">📚</div>
+        <span class="catTag tag-academic">Academics</span>
+        <div class="caption">Classroom Learning</div>
+      </div>
+
+      <div class="galleryItem" data-cat="sports" data-title="Cricket Ground" data-desc="Students practising cricket on the school grounds." onclick="openLightbox(this,'placeholder')">
+        <div class="imgPlaceholder h-sm g-sports">🏏</div>
+        <span class="catTag tag-sports">Sports</span>
+        <div class="caption">Cricket Ground</div>
+      </div>
+
+      <div class="galleryItem" data-cat="facility" data-title="School Library" data-desc="A well-stocked library fostering a love of reading." onclick="openLightbox(this,'placeholder')">
+        <div class="imgPlaceholder h-lg g-facility">📖</div>
+        <span class="catTag tag-facility">Facilities</span>
+        <div class="caption">School Library</div>
+      </div>
+
+      <div class="galleryItem" data-cat="events" data-title="Founders Day" data-desc="Annual Founders Day celebration with prize distribution." onclick="openLightbox(this,'placeholder')">
+        <div class="imgPlaceholder h-md g-events">🏆</div>
+        <span class="catTag tag-events">Events</span>
+        <div class="caption">Founders Day</div>
+      </div>
+
+      <div class="galleryItem" data-cat="campus" data-title="School Entrance" data-desc="The welcoming entrance of Paul International School." onclick="openLightbox(this,'placeholder')">
+        <div class="imgPlaceholder h-sm g-campus">🏫</div>
+        <span class="catTag tag-campus">Campus</span>
+        <div class="caption">School Entrance</div>
+      </div>
+
+      <div class="galleryItem" data-cat="academic" data-title="Science Exhibition" data-desc="Students presenting projects at the Annual Science Exhibition." onclick="openLightbox(this,'placeholder')">
+        <div class="imgPlaceholder h-md g-academic">🧪</div>
+        <span class="catTag tag-academic">Academics</span>
+        <div class="caption">Science Exhibition</div>
+      </div>
+
+      <div class="galleryItem" data-cat="sports" data-title="Athletics" data-desc="Track and field events at the Annual Sports Meet." onclick="openLightbox(this,'placeholder')">
+        <div class="imgPlaceholder h-lg g-sports">🏃</div>
+        <span class="catTag tag-sports">Sports</span>
+        <div class="caption">Athletics</div>
+      </div>
+
+      <div class="galleryItem" data-cat="events" data-title="Cultural Performances" data-desc="Dance and music performances by talented students." onclick="openLightbox(this,'placeholder')">
+        <div class="imgPlaceholder h-sm g-events">🎵</div>
+        <span class="catTag tag-events">Events</span>
+        <div class="caption">Cultural Performances</div>
+      </div>
+
+    </div>
+  </div></main>
+
+  <!-- LIGHTBOX -->
+  <div class="lightbox" id="lightbox" onclick="closeLightbox(event)">
+    <div class="lightboxInner">
+      <button class="lightboxClose" onclick="document.getElementById('lightbox').classList.remove('open')">✕</button>
+      <div id="lightboxContent"></div>
+      <div class="lightboxCaption"><h4 id="lbTitle"></h4><p id="lbDesc"></p></div>
+    </div>
+  </div>
+
+  <footer><div class="container">
+    <div class="footerGrid">
+      <div class="footerBrand"><img src="images/logo.png" alt="Paul International School" /><p>A CBSE-affiliated school established in 2002, committed to academic excellence and holistic development in Lakhimpur Kheri.</p><div class="affBadge" style="margin-top:14px;">✅ CBSE Affiliated</div></div>
+      <div><h5>Quick Links</h5><ul><li><a href="about.html">About Us</a></li><li><a href="our-staff.html">Our Staff</a></li><li><a href="events.html">Events</a></li><li><a href="gallery.html">Gallery</a></li><li><a href="cbse-disclosure.html">CBSE Disclosure</a></li></ul></div>
+      <div><h5>Academics</h5><ul><li>Primary Section (I–V)</li><li>Middle Section (VI–VIII)</li><li>Secondary (IX–X)</li><li>Senior Secondary (XI–XII)</li><li>Science & Commerce Streams</li></ul></div>
+      <div><h5>Contact</h5><ul><li>Near Jal Bhawan, Sitapur Road</li><li>Lakhimpur Kheri – 262701, U.P.</li><li><a href="tel:8765285114">📞 8765285114</a></li><li><a href="mailto:info@paulinternationalschool.edu.in">✉ info@paulinternationalschool.edu.in</a></li><li><a href="contact.html">View on Map →</a></li></ul></div>
+    </div>
+    <hr class="footerDivider" />
+    <div class="footerBottom"><p>© 2026 Paul International School, Lakhimpur Kheri. All rights reserved.</p><p>Designed for Paul International School</p></div>
+  </div></footer>
+
+  <script>
+    function filterGallery(cat, btn) {
+      document.querySelectorAll('.filterBtn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      document.querySelectorAll('.galleryItem').forEach(item => {
+        item.style.display = (cat === 'all' || item.dataset.cat === cat) ? 'block' : 'none';
+      });
+    }
+    function openLightbox(el, type) {
+      const lb = document.getElementById('lightbox');
+      document.getElementById('lbTitle').textContent = el.dataset.title;
+      document.getElementById('lbDesc').textContent = el.dataset.desc;
+      const content = document.getElementById('lightboxContent');
+      if (type === 'img') {
+        const src = el.querySelector('img').src;
+        content.innerHTML = '<img class="lightboxImg" src="' + src + '" alt="' + el.dataset.title + '" />';
+      } else {
+        const emoji = el.querySelector('.imgPlaceholder').textContent.trim();
+        const cls = el.querySelector('.imgPlaceholder').className.replace('imgPlaceholder','').replace('h-sm','').replace('h-md','').replace('h-lg','').replace('h-xl','').trim();
+        content.innerHTML = '<div class="lightboxPlaceholder ' + cls + '">' + emoji + '</div>';
+      }
+      lb.classList.add('open');
+    }
+    function closeLightbox(e) {
+      if (e.target === document.getElementById('lightbox')) document.getElementById('lightbox').classList.remove('open');
+    }
+  </script>
+</body>
+</html>
