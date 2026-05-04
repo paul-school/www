@@ -1,10 +1,8 @@
-2025-06-15|general|Founders Day Celebration|Annual Founders Day marking the establishment of Paul International School in 2002. Prize distribution and alumni meet.  
-2025-08-15|cultural|Independence Day Celebration|Flag hoisting, patriotic performances, speeches and cultural programmes to celebrate India's Independence Day.  
-2025-10-01|academic|Half-Yearly Examinations|Mid-year assessments for all classes. Detailed schedule to be announced. Parents are requested to ensure regular attendance.  
-2025-11-20|sports|Inter-House Cricket Tournament|Annual inter-house cricket competition. All four houses compete for the championship trophy.  
-2025-12-10|cultural|Annual Cultural Night|A dazzling evening of music, dance and drama showcasing the creative talents of our students.  
-2026-01-26|academic|Republic Day Celebration|Annual Republic Day parade and flag hoisting ceremony with cultural performances by students of all classes.  
 2026-02-14|cultural|Saraswati Puja & Vasant Panchami|School-wide celebration with Saraswati Puja, cultural programmes and art competitions.  
+2025-02-25|general|Founders Day Celebration|Annual Founders Day marking the establishment of Paul International School in 2002. Prize distribution and alumni meet.
 2026-03-15|academic|Annual Science Exhibition|Students from Classes VI–XII present innovative models and experiments. Open to parents and guests.  
 2026-03-20|sports|Annual Sports Meet|Inter-house track and field events, team sports and prize distribution.
-2026-06-25|sports|Football Tournament|Annual inter-school football tournament hosted at our grounds.
+2025-04-01|general|New Session Starts|New Session for 2026-27 starts form 1'st April.
+2026-05-20|holiday|Summer Holiday's Start|Summer vications starts
+2026-06-30|holiday|Summer Holiday's Start|Summer vications ends
+2026-07-25|sports|Football Tournament|Annual inter-school football tournament hosted at our grounds.
