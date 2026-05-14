@@ -304,7 +304,7 @@
    </script>
 
 
-  <!-- ══ NOTICE BOARD SCRIPT ══ -->
+<!-- ══ NOTICE BOARD SCRIPT ══ -->
   <script>
     const NB_MONTHS = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
 
@@ -315,13 +315,18 @@
 
     function nbBuildCard(fields, isPinned) {
       if (isPinned) {
-        const [, title] = fields;
-        return `<div class="noticeItem pinned">
-          <span class="pinnedBadge">Admissions Open</span>
-          <div class="noticeTitle">${title}</div>
-        </div>`;
+        // Pinned format: ADMISSION_OPEN | Title | Description
+        const [, title, desc] = fields;
+        return `
+          <div class="noticeItem pinned">
+            <span class="pinnedBadge">Admissions Open</span>
+            <div class="noticeTitle">${title}</div>
+            <div class="noticeHoverDesc">${desc}</div>
+          </div>`;
       }
-      const [dateStr, cat, title] = fields;
+      
+      // Regular format: Date | Category | Title | Description
+      const [dateStr, cat, title, desc] = fields;
       const catColors = {
         academic:'background:#dbeafe;color:#1e40af',
         cultural:'background:#fce7f3;color:#9d174d',
@@ -330,28 +335,39 @@
         general:'background:#f1f5f9;color:#475569'
       };
       const style = catColors[cat.toLowerCase()] || catColors.general;
-      return `<div class="noticeItem">
-        <div class="noticeMeta">
-          <span class="noticeDate">${nbFormatDate(dateStr)}</span>
-          <span class="noticeCatBadge" style="${style}">${cat}</span>
-        </div>
-        <div class="noticeTitle">${title}</div>
-      </div>`;
+      
+      return `
+        <div class="noticeItem">
+          <div class="noticeMeta">
+            <span class="noticeDate">${nbFormatDate(dateStr)}</span>
+            <span class="noticeCatBadge" style="${style}">${cat}</span>
+          </div>
+          <div class="noticeTitle">${title}</div>
+          <div class="noticeHoverDesc">${desc}</div>
+        </div>`;
     }
 
     fetch('notices.txt')
       .then(r => { if (!r.ok) throw new Error('notices.txt not found'); return r.text(); })
       .then(text => {
-        const lines   = text.trim().split('\n').filter(l => l.trim() && !l.startsWith('#'));
-        const pinned  = lines.filter(l => l.startsWith('ADMISSION_OPEN')).map(l => l.split('|').map(s=>s.trim()));
+        const lines = text.trim().split('\n').filter(l => l.trim() && !l.startsWith('#'));
+        
+        // Filter pinned notices (starting with ADMISSION_OPEN)
+        const pinned = lines.filter(l => l.startsWith('ADMISSION_OPEN'))
+                            .map(l => l.split('|').map(s=>s.trim()));
+                            
+        // Filter regular notices, sort by date, and take the top 6
         const regular = lines.filter(l => !l.startsWith('ADMISSION_OPEN'))
                              .map(l => l.split('|').map(s=>s.trim()))
                              .sort((a,b) => new Date(b[0]) - new Date(a[0]))
                              .slice(0, 6);
+                             
         const body = document.getElementById('noticeBoardBody');
         let html = '';
+        
         pinned.forEach(f  => html += nbBuildCard(f, true));
         regular.forEach(f => html += nbBuildCard(f, false));
+        
         body.innerHTML = html || '<div class="noticeLoading">No notices at this time.</div>';
       })
       .catch(err => {

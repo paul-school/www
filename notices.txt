@@ -1,6 +1,8 @@
 ADMISSION_OPEN|Admissions Open 2026–27|Enrol now for the new academic session. Limited seats available. Contact the school office for details.  
-2026-05-10|general|PTM Notice|Parent-Teacher Meeting scheduled for 10th May 2026. All parents are requested to attend between 9:00 AM – 1:00 PM.  
-2026-05-20|academic|Exam Schedule Released|The final examination schedule for Classes IX–XII has been published. Students can collect copies from the school office.  
-2026-06-01|holiday|Summer Vacation|School will remain closed from 1st June to 30th June 2026 for summer vacations. Classes resume 1st July.  
-2026-05-15|sports|Cricket Team Selection|Trials for the inter-school cricket tournament will be held on 15th May. Interested students of Classes VI–XII may register with the Sports Teacher.  
-2026-05-08|general|Fee Reminder|Last date for submission of April–June term fee is 15th May 2026. Kindly clear dues to avoid late charges.
+2026-05-01|sports|Cricket Team Selection|Trials for the inter-school cricket tournament will be held on 15th May. Interested students of Classes VI–XII may register with the Sports Teacher.  
+2026-05-02|academic|Exam Schedule Released|The final examination schedule for Classes IX–XII has been published. Students can collect copies from the school office.  
+2026-05-10|general|Fee Reminder|Last date for submission of April–June term fee is 15th May 2026. Kindly clear dues to avoid late charges.
+2026-05-13|holiday|Summer Vacation|School will remain closed from 20th May to 30th June 2026 for summer vacations. Classes resume 1st July.  
+2026-05-14|general|PTM Notice|Parent-Teacher Meeting scheduled for 18th May 2026. All parents are requested to attend between 9:00 AM – 1:00 PM.  
+
+

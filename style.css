@@ -308,6 +308,8 @@ footer a:hover { color: var(--gold2); }
 /* Pinned notice */
 .noticeItem.pinned {
   background: linear-gradient(135deg, #fef9ec, #fef3c7);
+  position: relative; 
+  cursor: pointer;
   border-left: 4px solid #f59e0b;
   padding: 13px 14px;
   border-bottom: 1px solid #fde68a;
@@ -326,13 +328,68 @@ footer a:hover { color: var(--gold2); }
 .noticeItem.pinned .noticeTitle { color: #92400e; font-size: 0.85rem; font-weight: 700; line-height: 1.4; }
 
 /* Regular notice items */
-.noticeItem { padding: 11px 14px; border-bottom: 1px solid #e2e8f0; transition: background 0.2s; }
+.noticeItem { position: relative; cursor: pointer; padding: 11px 14px; border-bottom: 1px solid #e2e8f0; transition: background 0.2s; }
 .noticeItem:hover { background: #f8fafc; }
 .noticeMeta { display: flex; align-items: center; gap: 6px; margin-bottom: 3px; }
 .noticeDate { display: none; }
 .noticeCatBadge { font-size: 0.62rem; padding: 1px 6px; border-radius: 20px; font-weight: 600; text-transform: capitalize; }
 .noticeTitle { font-size: 0.82rem; font-weight: 600; color: #1e293b; line-height: 1.4; }
 .noticeLoading { padding: 20px; color: #94a3b8; font-size: 0.85rem; text-align: center; }
+
+/* The Description Box (Tooltip Style) */
+.noticeHoverDesc {
+  display: none; /* Hidden by default */
+  position: absolute;
+  left: 0;
+  top: 100%;
+  width: 100%;
+  background: #35393f;
+  color: #ffffff;
+  padding: 12px;
+  border-radius: 4px;
+  font-size: 13px;
+  line-height: 1.4;
+  z-index: 10;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  margin-top: 5px;
+}
+
+/* Show the description on hover */
+.noticeItem:hover .noticeHoverDesc {
+  display: block;
+}
+
+/* Add a small arrow for the tooltip */
+.noticeHoverDesc::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 20px;
+  border-width: 6px;
+  border-style: solid;
+  border-color: transparent transparent #35393f transparent;
+}
+
+/* Ensure pinned notices follow the same logic */
+.noticeItem.pinned .noticeHoverDesc { background: var(--navy); /* Uses your school's navy color */}
+.noticeItem.pinned .noticeHoverDesc::before { border-color: transparent transparent var(--navy) transparent; }
+
+/* For the last two items, show the tooltip ABOVE the title */
+.noticeItem:nth-last-child(-n+1) .noticeHoverDesc {
+    top: auto;
+    bottom: 100%; /* Positions it above the notice item */
+    margin-top: 0;
+    margin-bottom: 5px;
+}
+
+/* Flip the arrow for the last two items */
+.noticeItem:nth-last-child(-n+1) .noticeHoverDesc::before {
+    bottom: auto;
+    top: 100%;
+    border-color: #35393f transparent transparent transparent; /* Points down */
+}
+
+
 
 /* ── INDEX: WHY SECTION ── */
 .whyGrid { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; }
