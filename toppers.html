@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="Paul International School — CBSE Affiliated School in Lakhimpur Kheri" />
+  <title>Paul International School | Lakhimpur Kheri</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+<div class="topBar">
+    <div class="container">
+      <div class="topBarInner">
+        <div class="topBarLeft">
+          <span>Near Jal Bhawan, Sitapur Road, Lakhimpur Kheri – 262701</span>
+        </div>
+        <div class="topBarRight">
+          <a href="tel:8765285114">8765285114</a>
+          <a href="mailto:info@paulinternationalschool.edu.in">info@paulinternationalschool.edu.in</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+ <!-- ══ HEADER ══ -->
+  <header>
+    <div class="container">
+      <div class="nav">
+        <a class="brand" href="index.html">
+          <img src="images/logo.png" alt="Paul International School" />
+          <div class="title">
+            <strong>Paul International School</strong>
+            <span>Lakhimpur Kheri, U.P.</span>
+          </div>
+        </a>
+        <nav aria-label="Primary">
+          <ul>
+            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="our-staff.html">Our Staff</a></li>
+            <li><a href="events.html">Events</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="cbse-disclosure.html">CBSE</a></li>
+            <li><a href="contact.html" class="navAdmission">Admissions</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </header>
+  
+  <div class="pageHero"><div class="pageHeroBg"></div><div class="container"><div class="pageHeroContent">
+    <div class="kicker"><span></span> Session 2026–27 Open</div>
+    <h1>Academic Excellence</h1>
+    <p>We'd love to welcome your child to the Paul International School family. Reach out to us for admissions, enquiries or a campus visit.</p>
+  </div></div></div>
+
+  <div class="breadcrumb"><div class="container"><ol><li><a href="index.html">Home</a></li><li>Academic Excellence</li></ol></div></div>
+
+  <main class="container" style="padding: 60px 20px;">
+    <div style="text-align: center; margin-bottom: 60px;">
+      <div class="sectionLabel">Academic Excellence</div>
+      <h1 class="sectionTitle">Academic Toppers</h1>
+      <p class="sectionSub">Celebrating the bright stars of Paul International School.</p>
+    </div>
+
+    <section class="topperSection">
+      <h2 class="groupTitle"><i class="fas fa-graduation-cap"></i> Class XII - Session 2026</h2>
+      <div id="class12Grid" class="toppersGrid"></div>
+    </section>
+
+    <section class="topperSection" style="margin-top: 60px;">
+      <h2 class="groupTitle"><i class="fas fa-medal"></i> Class X - Session 2026</h2>
+      <div id="class10Grid" class="toppersGrid"></div>
+    </section>
+
+    <section class="topperSection" style="margin-top: 60px;">
+      <h2 class="groupTitle"><i class="fas fa-history"></i> Hall of Fame (Previous Years)</h2>
+      <div id="previousGrid" class="toppersGrid"></div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footerInner">
+      <div class="footerCol">
+        <h3>About Paul School</h3>
+        <p>Empowering students with knowledge, character, and excellence since 2005.</p>
+      </div>
+      <div class="footerCol">
+        <h3>Quick Links</h3>
+        <ul class="footerLinks">
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="academics.html">Academics</a></li>
+          <li><a href="events.html">School Events</a></li>
+          <li><a href="contact.html">Admission</a></li>
+        </ul>
+      </div>
+      <div class="footerCol">
+        <h3>Contact Info</h3>
+        <p>Near Jal Bhawan, Sitapur Road<br>Lucknow, UP - 226021</p>
+      </div>
+    </div>
+    <div class="footerBottom">
+      <p>&copy; 2026 Paul International School. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    async function loadToppers() {
+      try {
+        const response = await fetch('toppers.txt');
+        const text = await response.text();
+        const lines = text.trim().split('\n').filter(l => l.trim() && !l.startsWith('#'));
+
+        const toppers = lines.map(line => {
+          // YEAR | NAME | CLASS | PERCENTAGE | IMAGE_PATH | SUBJECT
+          const [year, name, className, subject, marks, img ] = line.split('|').map(s => s.trim());
+          return { year, name, className, subject, marks, img };
+        });
+
+        const currentYear = "2026"; // Based on your toppers.txt data
+
+        // Filter and Sort
+        const class12 = toppers.filter(t => t.year === currentYear && t.className === "12");
+        const class10 = toppers.filter(t => t.year === currentYear && t.className === "10");
+        const previous = toppers.filter(t => t.year < currentYear)
+                                 .sort((a, b) => parseFloat(b.marks) - parseFloat(a.marks));
+
+        renderToppers(class12, 'class12Grid');
+        renderToppers(class10, 'class10Grid');
+        renderToppers(previous, 'previousGrid');
+
+      } catch (err) {
+        console.error("Error loading toppers:", err);
+      }
+    }
+
+    function renderToppers(data, containerId) {
+      const container = document.getElementById(containerId);
+      if (!data.length) {
+        container.innerHTML = `<p style="grid-column: 1/-1; text-align: center; color: #94a3b8;">No records found.</p>`;
+        return;
+      }
+
+      container.innerHTML = data.map(t => `
+        <div class="topperCard">
+          <div class="topperAvatar">
+            <img src="images/toppers/${t.img}" alt="${t.name}" onerror="this.onerror=null; this.src='https://placehold.co/200x200/f1f5f9/64748b?text=Student';">
+          </div>
+          <h3 class="topperName">${t.name}</h3>
+          <div class="topperMarks">${t.marks}%</div>
+          <div class="topperSubject">${t.subject}</div>
+          <div class="topperDetail">Class ${t.className} | ${t.year}</div>
+          
+        </div>
+      `).join('');
+    }
+
+    loadToppers();
+  </script>
+
+</body>
+</html>
