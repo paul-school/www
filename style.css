@@ -101,9 +101,12 @@ nav a.active { background: var(--navy); color: #fff; }
 
 /* ── STATS BAR ── */
 .statsBar {
-  background: var(--white); border-radius: var(--radius);
+  background: var(--white); 
+  border-radius: var(--radius);
   box-shadow: var(--shadow-lg);
-  display: grid; grid-template-columns: repeat(4,1fr);
+  display: grid; 
+  grid-template-columns: repeat(4,1fr);
+  margin-bottom: 40px; /* Added margin here */
 }
 .statItem { padding: 24px 20px; text-align: center; border-right: 1px solid var(--line); }
 .statItem:last-child { border-right: none; }
@@ -139,7 +142,12 @@ nav a.active { background: var(--navy); color: #fff; }
   background: linear-gradient(105deg, var(--navy) 0%, var(--blue) 60%, #1e6b4a 100%);
   border-radius: var(--radius);
   padding: 48px 40px;
-  display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap;
+  display: flex; 
+  align-items: center; 
+  justify-content: space-between; 
+  gap: 24px; 
+  flex-wrap: wrap;
+  margin-top: 60px; /* Added margin here */
 }
 .ctaBanner h2, .ctaBanner h3 { font-family: 'Playfair Display', serif; color: #fff; margin-bottom: 8px; }
 .ctaBanner h2 { font-size: clamp(26px,3.5vw,42px); }
@@ -181,7 +189,7 @@ nav a.active { background: var(--navy); color: #fff; }
 .featureCard p  { font-size: 13px; color: var(--muted); line-height: 1.65; }
 
 /* ── FILTER BUTTONS ── */
-.filters { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 36px; }
+.filterBar { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; margin-bottom: 40px; /* Provides breathing room before the grid */}
 .filterBtn {
   padding: 8px 20px; border-radius: 999px; font-size: 13px; font-weight: 600;
   border: 1px solid var(--line); background: var(--white); color: var(--muted);
