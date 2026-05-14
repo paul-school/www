@@ -247,61 +247,74 @@
   </footer>
 
   <!-- ══ Topper SCRIPT ══ -->
-   <script>
-    document.addEventListener('DOMContentLoaded', () => {
+<script>
+document.addEventListener('DOMContentLoaded', () => {
     const toppersContainer = document.getElementById('dynamicToppers');
 
     fetch('toppers.txt')
         .then(response => response.text())
         .then(data => {
-            const lines = data.trim().split('\n');
+            const lines = data.trim().split('\n').filter(l => l.trim() && !l.startsWith('#'));
             const students = lines.map(line => {
-                const [year, name, grade, stream, marks, image] = line.split('|');
+                const [year, name, grade, subject, marks, image] = line.split('|').map(s => s.trim());
                 return { 
                     year: parseInt(year), 
-                    name: name.trim(), 
-                    grade: grade.trim(), 
-                    stream: stream.trim(), 
+                    name: name, 
+                    grade: grade, 
+                    subject: subject, 
                     marks: parseFloat(marks), 
-                    image: image.trim() 
+                    image: image 
                 };
             });
 
             // Get the most recent year
             const latestYear = Math.max(...students.map(s => s.year));
 
-            // Filter by latest year and sort by marks
+            // Filter by latest year and sort by marks globally first
             const latestPool = students
                 .filter(s => s.year === latestYear)
                 .sort((a, b) => b.marks - a.marks);
 
-            // Select Top 2 from each grade
-            const top12 = latestPool.filter(s => s.grade === '12').slice(0, 2);
-            const top10 = latestPool.filter(s => s.grade === '10').slice(0, 2);
+            // Separate by grade
+            const all12 = latestPool.filter(s => s.grade === '12');
+            const all10 = latestPool.filter(s => s.grade === '10');
 
-            // Combine for the 4x1 display (12th toppers first, then 10th)
-            const finalFour = [...top12, ...top10];
+            // ══ FALLBACK LOGIC ══
+            let finalFour = [];
 
+            if (all12.length > 0 && all10.length > 0) {
+                // Scenario A: Both exist -> Take 2 and 2
+                finalFour = [...all12.slice(0, 2), ...all10.slice(0, 2)];
+            } else if (all12.length > 0) {
+                // Scenario B: Only Class 12 exists -> Take top 4 from 12
+                finalFour = all12.slice(0, 4);
+            } else if (all10.length > 0) {
+                // Scenario C: Only Class 10 exists -> Take top 4 from 10
+                finalFour = all10.slice(0, 4);
+            }
+
+            // Map to HTML
             const html = finalFour.map(student => `
-    <div class="topperCard">
-        <div class="topperAvatar">
-            <img src="images/toppers/${student.image}" alt="${student.name}">
-        </div>
-        <h4>${student.name}</h4>
-        <div class="cls">Class ${student.grade} ${student.stream !== 'General' ? '· ' + student.stream : ''}</div>
-        <div class="score">${student.marks}<span style="font-size:16px;color:var(--muted);">%</span></div>
-        <div class="scoreLabel">Board Percentage</div>
-    </div>
-`).join('');
+                <div class="topperCard">
+                    <div class="topperAvatar">
+                        <img src="images/toppers/${student.image}" alt="${student.name}" 
+                             onerror="this.onerror=null; this.src='https://placehold.co/200x200/f1f5f9/64748b?text=Student';">
+                    </div>
+                    <h4>${student.name}</h4>
+                    <div class="cls">Class ${student.grade} ${student.subject !== 'General' ? '· ' + student.subject : ''}</div>
+                    <div class="score">${student.marks}<span style="font-size:16px;color:var(--muted);">%</span></div>
+                    <div class="scoreLabel">2026</div>
+                </div>
+            `).join('');
 
-            toppersContainer.innerHTML = html;
+            toppersContainer.innerHTML = html || '<p>Results currently unavailable.</p>';
         })
         .catch(err => {
             console.error('Error:', err);
             toppersContainer.innerHTML = '<p>Results currently unavailable.</p>';
         });
 });
-   </script>
+</script>
 
 
 <!-- ══ NOTICE BOARD SCRIPT ══ -->
