@@ -55,17 +55,12 @@
   <div class="pageHero"><div class="pageHeroBg"></div><div class="container"><div class="pageHeroContent">
     <div class="kicker"><span></span> Session 2026–27 Open</div>
     <h1>Academic Excellence</h1>
-    <p>We'd love to welcome your child to the Paul International School family. Reach out to us for admissions, enquiries or a campus visit.</p>
+    <p>Celebrating the bright stars of Paul International School.</p>
   </div></div></div>
 
   <div class="breadcrumb"><div class="container"><ol><li><a href="index.html">Home</a></li><li>Academic Excellence</li></ol></div></div>
 
   <main class="container" style="padding: 60px 20px;">
-    <div style="text-align: center; margin-bottom: 60px;">
-      <div class="sectionLabel">Academic Excellence</div>
-      <h1 class="sectionTitle">Academic Toppers</h1>
-      <p class="sectionSub">Celebrating the bright stars of Paul International School.</p>
-    </div>
 
     <section class="topperSection">
       <h2 class="groupTitle"><i class="fas fa-graduation-cap"></i> Class XII - Session 2026</h2>
@@ -120,8 +115,9 @@
           const [year, name, className, subject, marks, img ] = line.split('|').map(s => s.trim());
           return { year, name, className, subject, marks, img };
         });
-
-        const currentYear = "2026"; // Based on your toppers.txt data
+        const lastEntry = toppers[toppers.length - 1];
+        const currentYear = lastEntry.year;
+        // const currentYear = "2026"; // Based on your toppers.txt data
 
         // Filter and Sort
         const class12 = toppers.filter(t => t.year === currentYear && t.className === "12");
