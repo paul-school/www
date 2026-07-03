@@ -7,4 +7,4 @@
 2026-06-30|holiday|Summer Holiday's|Summer vications ends.
 2026-07-01|holiday|Welcome back to School|Welcome back to school after the holidays.
 2026-07-25|sports|Football Tournament|Annual inter-school football tournament hosted at our grounds.
-2026-07-01|holiday|This is new test|Welcome back to school after the holidays.
+2026-07-15|holiday|This is new test|Welcome back to school after the holidays.
