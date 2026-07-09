@@ -1,4 +1,5 @@
 2025|Ishita Roy|12|Science|95.0|ishita.jpg
+2025|Ishita Roy|12|Science|94.0|ishita.jpg
 2024|Deepak Jha|10|General|94.5|deepak.jpg
 2026|Agyeya Tripathi|12|English|95|agyeya-tripathi.jpeg
 2026|Harshit Jaiswal|12|Chemistry|92|harshit-jaiswal.jpeg
