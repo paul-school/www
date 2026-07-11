@@ -8,5 +8,5 @@
 2026|Shivangi Gautam|12|English|93|shivangi-gautam.jpeg
 2026|Khushi Verma|12|PhysEd|90|khushi-verma.jpeg
 2026|HARSHIT JAISWAL|10|Science|88|HARSHIT-JAISWAL.jpg
-2026|ABHAY PRATAP VERMA|10|MATH|85|ABHAY-PRATAP-VERMA.jpg
+2026|ABHAY PRATAP VERMA|10|Math|85|ABHAY-PRATAP-VERMA.jpg
 
