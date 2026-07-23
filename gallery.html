@@ -82,7 +82,7 @@
     
     const galleryGrid = document.getElementById('galleryGrid');
 
-    // Fetch the list of images from the text file
+// Fetch the list of images from the text file
     fetch('image_list.txt')
       .then(response => {
         if (!response.ok) {
@@ -91,8 +91,9 @@
         return response.text();
       })
       .then(data => {
-        // Split the text file by new lines, remove extra whitespace, and filter out any empty lines
-        const imageFiles = data.split('\n').map(line => line.trim()).filter(line => line.length > 0);
+        // Split the text file by new lines, remove extra whitespace, filter out empty lines,
+        // and REVERSE the array so the bottom items in the text file appear first
+        const imageFiles = data.split('\n').map(line => line.trim()).filter(line => line.length > 0).reverse();
 
         imageFiles.forEach(path => {
           // Extract the folder name from the path
