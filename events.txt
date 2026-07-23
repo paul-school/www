@@ -8,3 +8,4 @@
 2026-07-01|holiday|Welcome back to School|Welcome back to school after the holidays.
 2026-07-25|sports|Football Tournament|Annual inter-school football tournament hosted at our grounds.
 2026-07-15|holiday|This is new test|Welcome back to school after the holidays.
+2026-08-15|cultural|Independence Day|India's 80th Independence Day will be observed on Saturday, August 15, 2026.

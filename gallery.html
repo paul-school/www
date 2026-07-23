@@ -50,99 +50,9 @@
       <button class="filterBtn" onclick="filterGallery('events',this)">Events</button>
     </div>
 
-    <div class="galleryGrid" id="galleryGrid">
-
-      <div class="galleryItem" data-cat="campus" data-title="School Campus" data-desc="The main building of Paul International School, Lakhimpur Kheri." onclick="openLightbox(this,'img')">
-        <img src="images/school_building.jpg" alt="School Campus" style="height:280px;object-fit:cover;" />
-        <span class="catTag tag-campus">Campus</span>
-        <div class="caption">School Campus</div>
-      </div>
-
-      <div class="galleryItem" data-cat="academic" data-title="Science Laboratory" data-desc="Students conducting experiments in the well-equipped science lab." onclick="openLightbox(this,'placeholder')">
-        <div class="imgPlaceholder h-lg g-academic">🔬</div>
-        <span class="catTag tag-academic">Academics</span>
-        <div class="caption">Science Laboratory</div>
-      </div>
-
-      <div class="galleryItem" data-cat="events" data-title="Annual Cultural Night" data-desc="Students performing at the Annual Cultural Night." onclick="openLightbox(this,'placeholder')">
-        <div class="imgPlaceholder h-md g-events">🎭</div>
-        <span class="catTag tag-events">Events</span>
-        <div class="caption">Annual Cultural Night</div>
-      </div>
-
-      <div class="galleryItem" data-cat="sports" data-title="Sports Meet" data-desc="Students competing in the Annual Sports Meet." onclick="openLightbox(this,'placeholder')">
-        <div class="imgPlaceholder h-xl g-sports">🏅</div>
-        <span class="catTag tag-sports">Sports</span>
-        <div class="caption">Annual Sports Meet</div>
-      </div>
-
-      <div class="galleryItem" data-cat="facility" data-title="Computer Laboratory" data-desc="Modern computer lab with internet-enabled workstations." onclick="openLightbox(this,'placeholder')">
-        <div class="imgPlaceholder h-md g-facility">💻</div>
-        <span class="catTag tag-facility">Facilities</span>
-        <div class="caption">Computer Laboratory</div>
-      </div>
-
-      <div class="galleryItem" data-cat="campus" data-title="School Grounds" data-desc="Spacious grounds for sports and outdoor activities." onclick="openLightbox(this,'placeholder')">
-        <div class="imgPlaceholder h-sm g-campus">🌳</div>
-        <span class="catTag tag-campus">Campus</span>
-        <div class="caption">School Grounds</div>
-      </div>
-
-      <div class="galleryItem" data-cat="events" data-title="Republic Day Parade" data-desc="Students marching in the Republic Day parade." onclick="openLightbox(this,'placeholder')">
-        <div class="imgPlaceholder h-lg g-events">🇮🇳</div>
-        <span class="catTag tag-events">Events</span>
-        <div class="caption">Republic Day Parade</div>
-      </div>
-
-      <div class="galleryItem" data-cat="academic" data-title="Classroom Learning" data-desc="Students engaged in interactive classroom sessions." onclick="openLightbox(this,'placeholder')">
-        <div class="imgPlaceholder h-md g-academic">📚</div>
-        <span class="catTag tag-academic">Academics</span>
-        <div class="caption">Classroom Learning</div>
-      </div>
-
-      <div class="galleryItem" data-cat="sports" data-title="Cricket Ground" data-desc="Students practising cricket on the school grounds." onclick="openLightbox(this,'placeholder')">
-        <div class="imgPlaceholder h-sm g-sports">🏏</div>
-        <span class="catTag tag-sports">Sports</span>
-        <div class="caption">Cricket Ground</div>
-      </div>
-
-      <div class="galleryItem" data-cat="facility" data-title="School Library" data-desc="A well-stocked library fostering a love of reading." onclick="openLightbox(this,'placeholder')">
-        <div class="imgPlaceholder h-lg g-facility">📖</div>
-        <span class="catTag tag-facility">Facilities</span>
-        <div class="caption">School Library</div>
-      </div>
-
-      <div class="galleryItem" data-cat="events" data-title="Founders Day" data-desc="Annual Founders Day celebration with prize distribution." onclick="openLightbox(this,'placeholder')">
-        <div class="imgPlaceholder h-md g-events">🏆</div>
-        <span class="catTag tag-events">Events</span>
-        <div class="caption">Founders Day</div>
-      </div>
-
-      <div class="galleryItem" data-cat="campus" data-title="School Entrance" data-desc="The welcoming entrance of Paul International School." onclick="openLightbox(this,'placeholder')">
-        <div class="imgPlaceholder h-sm g-campus">🏫</div>
-        <span class="catTag tag-campus">Campus</span>
-        <div class="caption">School Entrance</div>
-      </div>
-
-      <div class="galleryItem" data-cat="academic" data-title="Science Exhibition" data-desc="Students presenting projects at the Annual Science Exhibition." onclick="openLightbox(this,'placeholder')">
-        <div class="imgPlaceholder h-md g-academic">🧪</div>
-        <span class="catTag tag-academic">Academics</span>
-        <div class="caption">Science Exhibition</div>
-      </div>
-
-      <div class="galleryItem" data-cat="sports" data-title="Athletics" data-desc="Track and field events at the Annual Sports Meet." onclick="openLightbox(this,'placeholder')">
-        <div class="imgPlaceholder h-lg g-sports">🏃</div>
-        <span class="catTag tag-sports">Sports</span>
-        <div class="caption">Athletics</div>
-      </div>
-
-      <div class="galleryItem" data-cat="events" data-title="Cultural Performances" data-desc="Dance and music performances by talented students." onclick="openLightbox(this,'placeholder')">
-        <div class="imgPlaceholder h-sm g-events">🎵</div>
-        <span class="catTag tag-events">Events</span>
-        <div class="caption">Cultural Performances</div>
-      </div>
-
-    </div>
+    <!-- The grid is now empty and will be populated by JavaScript -->
+    <div class="galleryGrid" id="galleryGrid"></div>
+    
   </div></main>
 
   <!-- LIGHTBOX -->
@@ -166,6 +76,63 @@
   </div></footer>
 
   <script>
+    // ==========================================
+    // DYNAMIC GALLERY POPULATION VIA TEXT FILE
+    // ==========================================
+    
+    const galleryGrid = document.getElementById('galleryGrid');
+
+    // Fetch the list of images from the text file
+    fetch('image_list.txt')
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return response.text();
+      })
+      .then(data => {
+        // Split the text file by new lines, remove extra whitespace, and filter out any empty lines
+        const imageFiles = data.split('\n').map(line => line.trim()).filter(line => line.length > 0);
+
+        imageFiles.forEach(path => {
+          // Extract the folder name from the path
+          const pathParts = path.split('/');
+          const folderName = pathParts[pathParts.length - 2].toLowerCase();
+
+          // Map folder names to match the existing CSS classes and filter data-cats
+          let category = folderName;
+          if (folderName === 'academics') category = 'academic';
+          if (folderName === 'facilities') category = 'facility';
+
+          // Format the folder name for the caption (Capitalize first letter)
+          const caption = folderName.charAt(0).toUpperCase() + folderName.slice(1);
+
+          // Create the gallery item HTML structure
+          const item = document.createElement('div');
+          item.className = 'galleryItem';
+          item.dataset.cat = category;
+          item.dataset.title = caption;
+          item.dataset.desc = `Image from our ${caption}`;
+          item.onclick = function() { openLightbox(this, 'img'); };
+
+          item.innerHTML = `
+            <img src="${path}" alt="${caption}" style="height:280px;object-fit:cover;" loading="lazy" />
+            <span class="catTag tag-${category}">${caption}</span>
+            <div class="caption">${caption}</div>
+          `;
+
+          galleryGrid.appendChild(item);
+        });
+      })
+      .catch(error => {
+        console.error('There was a problem fetching the image list:', error);
+        galleryGrid.innerHTML = '<p>Error loading gallery images. Please try again later.</p>';
+      });
+
+    // ==========================================
+    // FILTER & LIGHTBOX FUNCTIONS
+    // ==========================================
+
     function filterGallery(cat, btn) {
       document.querySelectorAll('.filterBtn').forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
@@ -173,6 +140,7 @@
         item.style.display = (cat === 'all' || item.dataset.cat === cat) ? 'block' : 'none';
       });
     }
+
     function openLightbox(el, type) {
       const lb = document.getElementById('lightbox');
       document.getElementById('lbTitle').textContent = el.dataset.title;
@@ -188,6 +156,7 @@
       }
       lb.classList.add('open');
     }
+
     function closeLightbox(e) {
       if (e.target === document.getElementById('lightbox')) document.getElementById('lightbox').classList.remove('open');
     }

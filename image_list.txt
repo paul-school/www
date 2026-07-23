@@ -1,0 +1,15 @@
+images/campus/c1.jpg
+images/campus/c2.jpg
+images/campus/c3.jpg
+images/campus/facilities/f1.jpg
+images/campus/facilities/f2.jpg
+images/campus/facilities/f3.jpg
+images/academics/a1.jpg
+images/academics/a2.jpg
+images/academics/a3.jpg
+images/events/e1.jpg
+images/events/e2.jpg
+images/events/e3.jpg
+images/sports/s1.jpg
+images/sports/s2.jpg
+images/sports/s3.jpg
