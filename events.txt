@@ -1,11 +1,32 @@
-2026-02-14|cultural|Saraswati Puja & Vasant Panchami|School-wide celebration with Saraswati Puja, cultural programmes and art competitions.  
-2025-02-25|general|Founders Day Celebration|Annual Founders Day marking the establishment of Paul International School in 2002. Prize distribution and alumni meet.
-2026-03-15|academic|Annual Science Exhibition|Students from Classes VI–XII present innovative models and experiments. Open to parents and guests.  
-2026-03-20|sports|Annual Sports Meet|Inter-house track and field events, team sports and prize distribution.
-2025-04-01|general|New Session Starts|New Session for 2026-27 starts form 1'st April.
-2026-05-20|holiday|Summer Holiday's|Summer vications starts.
-2026-06-30|holiday|Summer Holiday's|Summer vications ends.
-2026-07-01|holiday|Welcome back to School|Welcome back to school after the holidays.
-2026-07-25|sports|Football Tournament|Annual inter-school football tournament hosted at our grounds.
-2026-07-15|holiday|This is new test|Welcome back to school after the holidays.
-2026-08-15|cultural|Independence Day|India's 80th Independence Day will be observed on Saturday, August 15, 2026.
+2026-04-03|holiday|Good Friday|School holiday on account of Good Friday.
+2026-04-14|holiday|Ambedkar Jayanti|School holiday on account of Ambedkar Jayanti.
+2026-05-20|holiday|Summer Vacations Start|Beginning of summer break for students.
+2026-06-30|holiday|Summer Vacations End|Final day of summer break for students.
+2026-07-01|general|Welcome Back to School|School reopens after summer vacations.
+2026-07-13|academic|Periodic Assessment I Starts|Commencement of Periodic Assessment I for Classes I to XII.
+2026-07-20|academic|Periodic Assessment I Ends|Concluding day of Periodic Assessment I.
+2026-08-15|cultural|80th Independence Day|Flag hoisting, patriotic cultural programmes, and mandatory attendance for staff and students.
+2026-08-28|holiday|Raksha Bandhan|School holiday on account of Raksha Bandhan.
+2026-09-04|holiday|Janmashtami|School holiday on account of Janmashtami.
+2026-09-14|academic|Term-I / Half Yearly Exams Start|Commencement of Term-I evaluation for all classes.
+2026-09-26|academic|Term-I / Half Yearly Exams End|Conclusion of Term-I examinations.
+2026-10-02|holiday|Mahatma Gandhi Jayanti|School holiday in observance of Gandhi Jayanti.
+2026-10-20|holiday|Dussehra & Autumn Break Starts|Beginning of Autumn break / Dussehra holidays.
+2026-10-28|holiday|Dussehra & Autumn Break Ends|Conclusion of Autumn break.
+2026-11-08|holiday|Diwali Break Starts|Beginning of Diwali festive holidays.
+2026-11-11|holiday|Diwali Break Ends|Conclusion of Diwali festive holidays.
+2026-11-24|holiday|Guru Nanak Jayanti|School holiday on account of Guru Nanak Jayanti.
+2026-12-07|academic|Periodic Assessment II Starts|Commencement of Periodic Assessment II.
+2026-12-15|academic|Periodic Assessment II Ends|Conclusion of Periodic Assessment II.
+2026-12-25|holiday|Christmas Day|School holiday on account of Christmas.
+2026-12-31|holiday|Winter Vacations Start|Beginning of winter break.
+2027-01-10|holiday|Winter Vacations End|Final day of winter break.
+2027-01-11|general|School Reopens|Classes resume following winter break.
+2027-01-18|academic|Pre-Board Exams Start|Commencement of Pre-Board examinations for Classes X & XII.
+2027-01-26|cultural|Republic Day|Celebration of Republic Day with ceremonial flag hoisting and performances.
+2027-01-30|academic|Pre-Board Exams End|Conclusion of Pre-Board examinations.
+2027-03-01|academic|Annual Examinations Start|Commencement of final Term-II / Annual examinations.
+2027-03-06|holiday|Maha Shivratri|School holiday on account of Maha Shivratri.
+2027-03-15|academic|Annual Examinations End|Conclusion of final examinations for Academic Session 2026–27.
+2027-03-22|holiday|Holi Break Starts|School holiday for Holi celebrations.
+2027-03-23|holiday|Holi Break Ends|Conclusion of Holi break.

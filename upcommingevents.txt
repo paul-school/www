@@ -1,0 +1,13 @@
+2026-09-04|academic|Term-I / Half Yearly Examinations|Term-I (Half-Yearly) examinations will take place from September 14 to September 26, 2026.
+2026-09-24|holiday|Mahatma Gandhi Jayanti|School will remain closed on Friday, October 2, 2026 in observance of Gandhi Jayanti.
+2026-10-12|holiday|Dussehra & Autumn Break|School will observe Dussehra / Autumn holidays from October 20 to October 28, 2026.
+2026-10-31|holiday|Diwali & Festive Break|Diwali and festive break scheduled from November 8 to November 11, 2026.
+2026-11-16|holiday|Guru Nanak Jayanti|School will remain closed on Tuesday, November 24, 2026 on account of Guru Nanak Jayanti.
+2026-11-27|academic|Periodic Assessment II Schedule|Periodic Assessment II will be conducted from December 7 to December 15, 2026.
+2026-12-17|holiday|Christmas Holiday|School will remain closed on Friday, December 25, 2026 for Christmas.
+2026-12-22|holiday|Winter Vacation Notice|Winter break for students starts December 31, 2026 and ends January 10, 2027. Classes resume January 11, 2027.
+2027-01-08|academic|Pre-Board Examinations (Classes X & XII)|Pre-Board exams for Classes X and XII will be held from January 18 to January 30, 2027.
+2027-01-18|cultural|Republic Day Celebration|Republic Day celebration on Tuesday, January 26, 2027 at the school grounds.
+2027-02-26|holiday|Maha Shivratri Holiday|School will remain closed on Saturday, March 6, 2027 for Maha Shivratri.
+2027-02-20|academic|Annual Examinations (Term-II)|Final term-end / Annual examinations scheduled from March 1 to March 15, 2027.
+2027-03-14|holiday|Holi Festival Break|School will remain closed for Holi celebrations from March 22 to March 23, 2027.
