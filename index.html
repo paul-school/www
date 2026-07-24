@@ -119,7 +119,7 @@
   </div>
 </section>
 
-  <!-- ══ EVENTS PREVIEW ══ -->
+<!-- ══ EVENTS PREVIEW ══ -->
   <section>
     <div class="container">
       <div style="display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:16px;margin-bottom:0;">
@@ -130,47 +130,12 @@
         </div>
         <a href="events.html" style="font-size:14px;font-weight:600;color:var(--blue);">All Events →</a>
       </div>
-      <div class="eventsGrid">
-        <div class="eventCard">
-          <div class="eventCardTop">
-            <div class="eventDate"><div class="day">15</div><div class="mon">May</div></div>
-            <div class="eventInfo">
-              <span class="eventCat cat-academic">Academic</span>
-              <h4>Annual Science Exhibition 2025</h4>
-            </div>
-          </div>
-          <div class="eventCardBody">
-            <p>Students from Classes VI–XII present innovative models and experiments. Open to parents and guests.</p>
-            <a class="eventLink" href="events.html">Learn more →</a>
-          </div>
-        </div>
-        <div class="eventCard">
-          <div class="eventCardTop">
-            <div class="eventDate"><div class="day">22</div><div class="mon">May</div></div>
-            <div class="eventInfo">
-              <span class="eventCat cat-cultural">Cultural</span>
-              <h4>Annual Cultural Night</h4>
-            </div>
-          </div>
-          <div class="eventCardBody">
-            <p>A dazzling evening of music, dance and drama showcasing the creative talents of our students.</p>
-            <a class="eventLink" href="events.html">Learn more →</a>
-          </div>
-        </div>
-        <div class="eventCard">
-          <div class="eventCardTop">
-            <div class="eventDate"><div class="day">10</div><div class="mon">Jun</div></div>
-            <div class="eventInfo">
-              <span class="eventCat cat-sports">Sports</span>
-              <h4>Annual Sports Meet 2025</h4>
-            </div>
-          </div>
-          <div class="eventCardBody">
-            <p>Inter-house track and field events, team sports and prize distribution for the academic year.</p>
-            <a class="eventLink" href="events.html">Learn more →</a>
-          </div>
-        </div>
+      
+      <!-- The ID 'indexEventsGrid' has been added here to load events dynamically -->
+      <div class="eventsGrid" id="indexEventsGrid">
+        <p style="color:var(--muted);padding:20px;">Loading events…</p> 
       </div>
+      
     </div>
   </section>
 
@@ -236,7 +201,92 @@
       </div>
     </div>
   </footer>
+<!-- ══ EVENTS PREVIEW SCRIPT ══ -->
+<script>
+  // Prefixing variables to avoid conflicts with other scripts on the page
+  const EV_MONTH_NAMES = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  const EV_TODAY = new Date();
+  EV_TODAY.setHours(0,0,0,0);
 
+  const EV_CAT_META = {
+    academic: { tag: 'cat-academic', label: 'Academic' },
+    cultural: { tag: 'cat-cultural', label: 'Cultural' },
+    sports:   { tag: 'cat-sports',   label: 'Sports'   },
+    general:  { tag: 'cat-general',  label: 'General'  },
+    holiday:  { tag: 'cat-holiday',  label: 'Holiday'  },
+  };
+
+  fetch('events.txt')
+    .then(r => {
+      if (!r.ok) throw new Error('Could not load events.txt');
+      return r.text();
+    })
+    .then(text => {
+      // 1. Parse and sort all events chronologically
+      const allEvents = text.trim().split('\n')
+        .filter(line => line.trim() && !line.startsWith('#'))
+        .map(line => {
+          const [dateStr, cat, title, desc] = line.split('|').map(s => s.trim());
+          return { date: new Date(dateStr), cat: cat.toLowerCase(), title, desc };
+        })
+        .sort((a, b) => a.date - b.date);
+
+      // 2. Separate into past and upcoming arrays
+      const past = allEvents.filter(e => e.date < EV_TODAY);
+      const upcoming = allEvents.filter(e => e.date >= EV_TODAY);
+
+      // 3. Get the 1st event (most recent past event)
+      const lastPast = past.length > 0 ? [past[past.length - 1]] : [];
+      
+      // 4. Get the 2nd and 3rd events (next two upcoming events)
+      const nextTwo = upcoming.slice(0, 2);
+
+      // 5. Combine and limit to exactly 3 events
+      const displayEvents = [...lastPast, ...nextTwo].slice(0, 3);
+
+      const grid = document.getElementById('indexEventsGrid');
+      
+      if (!displayEvents.length) {
+        grid.innerHTML = '<p style="color:var(--muted);padding:20px;">No events to display.</p>';
+        return;
+      }
+
+      // 6. Build the HTML cards
+      grid.innerHTML = displayEvents.map(ev => {
+        const meta = EV_CAT_META[ev.cat] || EV_CAT_META.general;
+        const day = ev.date.getDate().toString().padStart(2, '0');
+        const mon = EV_MONTH_NAMES[ev.date.getMonth()];
+        
+        // Add subtle visual cues if the event has already passed
+        const isPast = ev.date < EV_TODAY;
+        const pastStyle = isPast ? 'style="opacity: 0.8;"' : '';
+        const dateStyle = isPast ? 'style="background:#94a3b8;"' : '';
+        const titlePrefix = isPast ? '<span style="color:#dc2626;font-size:12px;font-weight:700;display:block;margin-bottom:4px;text-transform:uppercase;">Just Passed</span>' : '';
+
+        return `
+          <div class="eventCard" ${pastStyle}>
+            <div class="eventCardTop">
+              <div class="eventDate" ${dateStyle}>
+                <div class="day">${day}</div>
+                <div class="mon">${mon}</div>
+              </div>
+              <div class="eventInfo">
+                <span class="eventCat ${meta.tag}">${meta.label}</span>
+                <h4>${titlePrefix}${ev.title}</h4>
+              </div>
+            </div>
+            <div class="eventCardBody">
+              <p>${ev.desc}</p>
+              <a class="eventLink" href="events.html">Learn more →</a>
+            </div>
+          </div>`;
+      }).join('');
+    })
+    .catch(err => {
+      document.getElementById('indexEventsGrid').innerHTML =
+        `<p style="color:#dc2626;padding:20px;">⚠ ${err.message}</p>`;
+    });
+</script>
   <!-- ══ Topper SCRIPT ══ -->
 <script>
 document.addEventListener('DOMContentLoaded', () => {
