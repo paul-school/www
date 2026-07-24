@@ -8,7 +8,8 @@ ADMISSION_OPEN|Admissions Open 2026–27|Enrol now for the new academic session.
 2026-05-25|academic|PG to 8 - Classes Resume|Regular classes will officially resume for all students on 1st July following the summer break.
 2026-06-24|holiday|Welcome Back to School|School reopens on Wednesday, July 1, 2026 following the summer break.
 2026-07-03|academic|Periodic Assessment I Schedule|Periodic Assessment I will be conducted from July 13 to July 20, 2026 across all grades.
-2026-08-07|cultural|80th Independence Day Celebration|Celebration of India's 80th Independence Day on Saturday, August 15, 2026. Attendance is mandatory for staff and students.
+2026-07-25|general|PTM Notice|Parent-Teacher Meeting scheduled for 10th August 2026. All parents are requested to attend between 9:00 AM – 1:00 PM.
+\\2026-08-07|cultural|80th Independence Day Celebration|Celebration of India's 80th Independence Day on Saturday, August 15, 2026. Attendance is mandatory for staff and students.
 \\2026-08-20|holiday|Raksha Bandhan Holiday|School will remain closed on Friday, August 28, 2026 for Raksha Bandhan.
 \\2026-08-27|holiday|Janmashtami Holiday|School will remain closed on Friday, September 4, 2026 on the occasion of Janmashtami.
 
