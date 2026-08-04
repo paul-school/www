@@ -40,3 +40,4 @@ images/sports/s1.jpg
 images/sports/s2.jpg
 images/sports/s3.jpg
 images/sports/s4.jpg
+images/sports/s5.jpg
