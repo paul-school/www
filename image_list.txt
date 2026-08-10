@@ -11,6 +11,7 @@ images/academics/a3.jpg
 images/academics/a4.jpg
 images/academics/a5.jpg
 images/academics/a6.jpg
+images/academics/a7.jpg
 
 images/events/e1.jpg
 images/events/e2.jpg
