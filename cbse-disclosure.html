@@ -44,6 +44,23 @@
     <div class="infoCard">
       <p>In compliance with CBSE guidelines, Paul International School makes all mandatory disclosure documents available for public access. These documents include the school's affiliation details, infrastructure information, staff details, fee structure and other statutory requirements. <strong>All documents are updated regularly.</strong></p>
     </div>
+    <!-- TC SEARCH BOX SECTION -->
+    <div class="tcSearchCard">
+      <div class="sectionLabel">Student Verification</div>
+      <h2 class="sectionTitle">Transfer Certificate Lookup</h2>
+      <form id="tcSearchForm" class="tcForm">
+        <div class="formGroup">
+          <label for="tcRoll">Roll Number</label>
+          <input type="text" id="tcRoll" placeholder=" #### " required>
+        </div>
+        <div class="formGroup">
+          <label for="tcDob">Date of Birth (DD/MM/YYYY)</label>
+          <input type="text" id="tcDob" placeholder=" --/--/---- " required>
+        </div>
+        <button type="submit" class="btnPrimary">Search</button>
+      </form>
+      <div id="tcResult" class="tcResultContainer"></div>
+    </div>
 
     <!-- SCHOOL INFO -->
     <div class="sectionLabel">School Information</div>
@@ -174,5 +191,63 @@
     <div class="footerBottom"><p>© 2026 Paul International School, Lakhimpur Kheri. All rights reserved.</p></div>
   </div></footer>
 
+<script>
+    document.getElementById('tcSearchForm').addEventListener('submit', async function(e) {
+      e.preventDefault();
+      
+      const inputRoll = document.getElementById('tcRoll').value.trim();
+      const inputDob = document.getElementById('tcDob').value.trim();
+      const resultDiv = document.getElementById('tcResult');
+      
+      resultDiv.innerHTML = 'Searching...';
+
+      try {
+        const response = await fetch('cert_list.txt');
+        if (!response.ok) throw new Error('Could not load student database.');
+        
+        const textData = await fetchResponseText(response);
+        const lines = textData.split('\n');
+        
+        let matchedStudent = null;
+
+        for (let line of lines) {
+          if (!line.trim()) continue;
+          
+          // Expected format: Roll | Name | DOB | UDISE
+          const parts = line.split('|').map(p => p.trim());
+          if (parts.length >= 4) {
+            const [roll, name, dob, udise] = parts;
+            if (roll === inputRoll && dob === inputDob) {
+              matchedStudent = { roll, name, dob, udise };
+              break;
+            }
+          }
+        }
+
+        if (matchedStudent) {
+          // File path pointing to images/transfer_cert/[Roll No].pdf
+          const pdfPath = `images/transfer_cert/${matchedStudent.roll}.pdf`;
+          resultDiv.innerHTML = `
+            <div class="tcMatch">
+              <p><strong>UDISE No:</strong> ${matchedStudent.udise}</p>
+              <p><strong>Student Name:</strong> 
+                <a href="${pdfPath}" target="_blank" class="tcLink">
+                  ${matchedStudent.name} (View TC PDF)
+                </a>
+              </p>
+            </div>
+          `;
+        } else {
+          resultDiv.innerHTML = `<p class="tcError">No student record found matching Roll No: <strong>${inputRoll}</strong> and DOB: <strong>${inputDob}</strong>.</p>`;
+        }
+      } catch (err) {
+        resultDiv.innerHTML = `<p class="tcError">Error: ${err.message}</p>`;
+      }
+    });
+
+    async function fetchResponseText(response) {
+      return await response.text();
+    }
+  </script>
 </body>
 </html>
