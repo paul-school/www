@@ -36,6 +36,8 @@ images/events/e20.jpg
 images/events/e21.jpg
 images/events/e22.jpg
 images/events/e23.jpg
+images/events/e25.jpg
+
 
 
 images/sports/s1.jpg
