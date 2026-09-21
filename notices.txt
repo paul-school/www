@@ -13,3 +13,5 @@ ADMISSION_OPEN|Admissions Open 2026–27|Enrol now for the new academic session.
 2026-08-28|holiday|Raksha Bandhan Holiday|School will remain closed on Friday, August 28, 2026 for Raksha Bandhan.
 2026-08-29|holiday|Janmashtami Holiday|School will remain closed on Friday, September 4, 2026 on the occasion of Janmashtami.
 #\\2026-09-02|holiday|Mahatma Gandhi Jayanti|School will remain closed on Friday, October 02, 2026 on the occasion of Mahatma Gandhi Jayanti.
+2026-09-28|HALF YEARLY EXAMINATION -2026|All the students are hereby informed that the Half-Yearly Examination will be conducted from 28 September 2026 to 16 October 2026.
+
